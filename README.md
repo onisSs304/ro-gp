@@ -1,1 +1,1 @@
-### Riemannian Optimization for hyperparameters estimation in Gaussian process with categorical inputs
+### Riemannian Optimization for covariance matrix estimation in Gaussian process with categorical inputs
