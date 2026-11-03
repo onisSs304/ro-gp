@@ -17,9 +17,10 @@ We implemented the Euclidean methods to optimize the problem, we choosen L-BFGS 
 
 Some empirical observations: 
  - For both SPD and SPD unit diagonal, if the Gaussian process is purely categorical, the resulting optimal matrix will be singular (minimum eigenvalue goes to 0)
- - In the presence of continuous part, we used RBF kernel function: $$
-k(x,x') = \exp \left(\dfrac{||x-x'||^2}{2l^2} \right)
- $$
+ - In the presence of continuous part, we used RBF kernel function:
+$$
+k(x,x') = \exp \frac{||x-x'||^2}{2l^2})
+$$
  - We saw an interplay between lengthscale $l$ and the optimal matrix:
    + For SPD matrix in general, the bigger length-scale, the resulting matrix tends to the boundary of manifold SPD matrices. For smaller length-scales, the problem becomes more well-conditioned. Interestingly, if the length-scale is too small, l <= 0.005, the resulting matrix also becomes ill-conditioned. 
    + For SPD matrix with unit diagonal, the length-scale also affects the resulting matrix with the same way; to obtain the true covariance matrix, length-scale need not to be too large and too small.
