@@ -11,9 +11,9 @@ def generate_dataset(n=200, m=3, length_scale=0.2, sigma=1e-3, seed=42, L=5):
     conts = rng.uniform(0, L, size=n)
 
     T_true = np.array([
-    [2.0, 0.6, 0.2],
-    [0.6, 1.5, 0.4],
-    [0.2, 0.4, 0.8],
+    [1.0, 0.6, 0.2],
+    [0.6, 1.0, 0.4],
+    [0.2, 0.4, 1.0],
     ])
     Z = np.eye(m)[cats]
     D = (conts[:, None] - conts[None, :])**2

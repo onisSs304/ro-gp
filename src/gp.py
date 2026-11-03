@@ -1,3 +1,5 @@
+import time
+
 import autograd.numpy as anp
 from autograd.scipy.linalg import solve_triangular
 
@@ -62,5 +64,3 @@ class GP:
         residual = self.y
     A = self._solve(L, residual)
     return ( 0.5 * residual.T @ A + anp.sum(anp.log(anp.diag(L)))+ self.n / 2 * anp.log(2 * anp.pi) )
-  
-    
