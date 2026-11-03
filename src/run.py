@@ -3,6 +3,9 @@ import csv
 import time
 from pathlib import Path
 
+SRC_DIR = Path(__file__).resolve().parent
+DEFAULT_DATA = SRC_DIR / "data" / "dataset.npz"
+
 import numpy as np
 from gp import GP
 from euclidean_methods import l_bfgs
@@ -75,7 +78,7 @@ def run_experiments(args):
 
 if __name__  == "main":
   parser = argparse.ArgumentParser()
-  parser.add_argument("--data", type=str, default="data/dataset.npz")
+  parser.add_argument("--data", type=str, default=str(DEFAULT_DATA))
   parser.add_argument("--m", type=int, required=True)
 
   parser.add_argument("--length-scale", type=float, default=1.0)
@@ -89,7 +92,7 @@ if __name__  == "main":
   parser.add_argument("--maxcor", type=int, default=10)
 
   parser.add_argument("--seed", type=int, default=42)
-  parser.add_argument("--output", type=str, default="result/l_bfgs")
+  parser.add_argument("--output", type=str, default=str(SRC_DIR/"result"/"l_bfgs"))
 
   args = parser.parse_args()
 
