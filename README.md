@@ -11,15 +11,15 @@ $$
 
 Now, our problem turns into optimization over a matrix space. Depending on the parametrization of $T$, we have another geometric structure: $T$ could be a SPD matrix in general or could be unit diagonal. 
 
-Update 03/11/2026: 
+Update 03/11/2026:
 
-We implemented the Euclidean methods to optimize the problem, we choosen L-BFGS (already implemented in scipy package). 
+We implemented the Euclidean methods to optimize the problem, we choosen L-BFGS (already implemented in scipy package). For the gradient and hessian, to get a fair comparison with the package, we used automatic differentiation implemented in the package autograd. 
 
 Some empirical observations: 
  - For both SPD and SPD unit diagonal, if the Gaussian process is purely categorical, the resulting optimal matrix will be singular (minimum eigenvalue goes to 0)
  - In the presence of continuous part, we used RBF kernel function:
 $$
-k(x,x') = \exp \frac{||x-x'||^2}{2l^2})
+k(x,x') = \exp (\frac{||x-x'||^2}{2l^2})
 $$
  - We saw an interplay between lengthscale $l$ and the optimal matrix:
    + For SPD matrix in general, the bigger length-scale, the resulting matrix tends to the boundary of manifold SPD matrices. For smaller length-scales, the problem becomes more well-conditioned. Interestingly, if the length-scale is too small, l <= 0.005, the resulting matrix also becomes ill-conditioned. 
