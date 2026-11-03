@@ -3,33 +3,19 @@ import numpy as np
 from pathlib import Path
 
 
-def generate_dataset(
-    n=200,
-    m=3,
-    length_scale=0.2,
-    sigma=1e-3,
-    seed=42,
-    L=5
-):
+def generate_dataset(n=200, m=3, length_scale=0.2, sigma=1e-3, seed=42, L=5):
     rng = np.random.default_rng(seed)
 
-    # 1. Categorical inputs
     cats = rng.integers(0, m, size=n)
 
-    # 2. Continuous inputs
     conts = rng.uniform(0, L, size=n)
 
-    # 3. True categorical covariance matrix
     T_true = np.array([
-        [1.0, 0.6, 0.2],
-        [0.6, 1.0, 0.4],
-        [0.2, 0.4, 1.0],
+    [2.0, 0.6, 0.2],
+    [0.6, 1.5, 0.4],
+    [0.2, 0.4, 0.8],
     ])
-
-    # 4. One-hot encoding
     Z = np.eye(m)[cats]
-
-    # 5. Continuous RBF kernel
     D = (conts[:, None] - conts[None, :])**2
 
     K_cont = np.exp(
@@ -47,8 +33,10 @@ def generate_dataset(
     )
 
     # 8. Save dataset
-    output_dir = Path("data")
-    output_dir.mkdir(exist_ok=True)
+    SRC_DIR = Path(__file__).resolve().parent
+
+    output_dir = SRC_DIR / "data"
+    output_dir.mkdir(parents=True, exist_ok=True)
 
     np.savez_compressed(
         output_dir / "dataset.npz",
