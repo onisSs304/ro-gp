@@ -3,7 +3,7 @@ import autograd.numpy as anp
 from autograd import value_and_grad
 from scipy.optimize import minimize
 
-def l_bfgs(gp, T0, method="L-BFGS-B", n_starts=1, gtol=1e-6, ftol=1e-15, record_history=True, rng=None, maxcor=10):
+def l_bfgs(gp, T0, method="L-BFGS-B", n_starts=1, gtol=1e-6, ftol=1e-15, record_history=True, rng=None, maxcor=10): # L-BFGS for NLL over space of SPD matrices in general
   m = gp.m
   il = np.tril_indices(m)
   dg = np.diag_indices(m)
@@ -79,7 +79,7 @@ def angles_to_L(a, m):
 
   return L
 
-def angles_lbfgs(gp, method="L-BFGS-B", n_starts=1, gtol=1e-6, ftol=1e-, record_history=True, rng=None, maxcor=10):
+def angles_lbfgs(gp, method="L-BFGS-B", n_starts=1, gtol=1e-6, ftol=1e-2, record_history=True, rng=None, maxcor=10): # L-BFGS for NLL over space of SPD matrices with unit diagonal
   m = gp.m
   na = m * (m - 1) // 2
   def objective(a):
