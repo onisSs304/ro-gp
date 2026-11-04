@@ -1,6 +1,6 @@
-## Riemannian Optimization for covariance matrix estimation in Gaussian process with categorical inputs
+# Riemannian Optimization for covariance matrix estimation in Gaussian process with categorical inputs
 
-### Negative log-likelihood function
+## Negative log-likelihood function
 
 $$
 \hat{\beta}, \hat{T} \in \arg \min _{\beta \in \mathbb{R}^m, T } \log (\det (ZTZ^T \circ K_X + \sigma ^2 Id)) + (Y - F\beta)^t (ZTZ^T \circ K_X + \sigma ^2 Id)^{-1} (Y - F\beta)
@@ -11,7 +11,7 @@ $$
 
 Now, our problem turns into optimization over a matrix space. Depending on the parametrization of $T$, we have another geometric structure: $T$ could be a SPD matrix in general or could be unit diagonal. 
 
-Update 04/11/2026: 
+### Update 04/11/2026: 
 
 Some ideas to deal with the geometry of full rank correlation matrices (SPD matrices with unit diagonal), denote $Cor^+(n)$: 
 
@@ -19,7 +19,7 @@ Some ideas to deal with the geometry of full rank correlation matrices (SPD matr
  - $Cor^+(n)$ as a quotient manifold, $Cor^+(n) \cong Sym^+(n)/Diag^+(n)$, then try to the closed form for Riemannian metric, exponential map or Riemannian gradient as the instructions of the Boumal's book but it could be more computationally expensive (Actually the closed-form expression exists). 
  - $Cor^+(n) = Elliptone(n,n)$ in pymanopt directly (Elliptone(n,k) is rank-k, symmetric, semidefinite positive and unit diagonal matrices). However, in the implementation, they used the Frobenius inner product that could ignore the geometric properties of the space itself. 
 
-Update 03/11/2026:
+### Update 03/11/2026:
 
 We implemented the Euclidean methods to optimize the problem, we choosen L-BFGS (already implemented in scipy package). For the gradient and hessian, to get a fair comparison with the package pymanopt, we used automatic differentiation implemented in the package autograd. 
 
