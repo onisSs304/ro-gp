@@ -32,4 +32,4 @@ $$
  - We saw an interplay between lengthscale $l$ and the optimal matrix:
    + For SPD matrix in general, the bigger length-scale, the resulting matrix tends to the boundary of manifold SPD matrices. For smaller length-scales, the problem becomes more well-conditioned. Interestingly, if the length-scale is too small, l <= 0.005, the resulting matrix also becomes ill-conditioned. 
    + For SPD matrix with unit diagonal, the length-scale also affects the resulting matrix with the same way; to obtain the true covariance matrix, length-scale need not to be too large and too small.
- - From these observations, for ill-conditionned problems, we could use Bures-Wasserstein metric that is well-known favorable in this case (already proved for space of symmetric positive definite matrices but not verified for correlation matrices).  
+ 
