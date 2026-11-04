@@ -13,7 +13,7 @@ Now, our problem turns into optimization over a matrix space. Depending on the p
 
 Update 03/11/2026:
 
-We implemented the Euclidean methods to optimize the problem, we choosen L-BFGS (already implemented in scipy package). For the gradient and hessian, to get a fair comparison with the package, we used automatic differentiation implemented in the package autograd. 
+We implemented the Euclidean methods to optimize the problem, we choosen L-BFGS (already implemented in scipy package). For the gradient and hessian, to get a fair comparison with the package pymanopt, we used automatic differentiation implemented in the package autograd. 
 
 Some empirical observations: 
  - For both SPD and SPD unit diagonal, if the Gaussian process is purely categorical, the resulting optimal matrix will be singular (minimum eigenvalue goes to 0)
