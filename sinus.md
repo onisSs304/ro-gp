@@ -4,6 +4,6 @@ The global minimum of this function is attained at $\theta=\frac{3\pi}{2}$ and $
 
 We relate our original problem to an optimization problem over the unit sphere in $\mathbb{R}^2$, that is minimizing the function $f(x)=Proj_y(x)$, where $Proj_y(x)$ is the orthogonal projection from $x$ to $y$-axis. This function is smooth and bounded from below and above.
 
-We use the first order condition optimality and compute $grad f(x) = 0$ where $grad f(x) = (I_2 - xx^T)(0, 1)^T$ which gives us 2 critical points: $(-1,0)$ and $(1,0)$. 
+We use the first order condition optimality and compute $grad f(x) = 0$ where $grad f(x) = (I_2 - xx^T)(0, 1)^T$ which gives us 2 critical points: $(0, -1)$ and $(0,1)$. 
 
-Then continue using second-order condition optimality to deduce that $(-1,0)$ is the local minimizer of our problem, which is also the global minimizer for the problem (the sphere is a compact manifold, so f smooth on a compact manifold admits 1 global minimum and global minimum is also a local minimum). 
+Then continue using second-order condition optimality to deduce that $(0,-1)$ is the local minimizer of our problem, which is also the global minimizer for the problem (the sphere is a compact manifold, so f smooth on a compact manifold admits 1 global minimum and global minimum is also a local minimum). 
