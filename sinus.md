@@ -6,4 +6,4 @@ We relate our original problem to an optimization problem over the unit sphere i
 
 We use the first order condition optimality and compute $grad f(x) = 0$ where $grad f(x) = (I_2 - xx^T)(0, 1)^T$ which gives us 2 critical points: $(0, -1)$ and $(0,1)$. 
 
-Then continue using second-order condition optimality to deduce that $(0,-1)$ is the local minimizer of our problem, which is also the global minimizer for the problem (the sphere is a compact manifold, so f smooth on a compact manifold admits 1 global minimum and global minimum is also a local minimum). 
+Then continue using second-order condition optimality to deduce that $(0,-1)$ is the local minimizer of our problem, which is also the global minimizer for the problem (the sphere is a compact manifold without boundary, so f smooth on a compact manifold admits 1 global minimum and global minimum is also a local minimum). 
